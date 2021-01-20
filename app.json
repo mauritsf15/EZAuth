@@ -1,0 +1,19 @@
+{
+  "name": "EZAuth",
+  "description": "Authenticate your users easily with logging in and registering.",
+  "website": "https://www.succ.pw/",
+  "repository": "https://github.com/mauritsf15/EZAuth",
+  "logo": "https://www.succ.pw/ezauth.png",
+  "addons": [
+    "heroku-postgresql:hobby-dev"
+  ],
+  "keywords": [
+    "ezauth",
+    "kodular",
+    "android",
+    "python",
+    "flask",
+    "postgresql",
+    "appinventor"
+  ]
+}
