@@ -29,18 +29,24 @@ def login():
         try:
             username = request.form.get('username')
             password = request.form.get('password')
-            try:
-                db_values = Auth.query.filter_by(username=username).first()
-                try:
-                    db_pass = db_values.password
-                    if sha256_crypt.verify(str(password), db_pass):
-                        return Response('{"success": true, "message": "Logged in"}', status=200, mimetype='application/json')
-                    else:
-                        return Response('{"success": false, "cause": "Incorrect credentials"}', status=400, mimetype='application/json')
-                except:
-                    return Response('{"success": false, "cause": "Something went wrong."}', status=400, mimetype='application/json')
-            except:
-                return Response('{"success": false, "cause": "Could not find that username"}', status=400, mimetype='application/json')
+            if username == None:
+                return Response('{"success": false, "cause": "Bad request"}', status=400, mimetype='application/json')
+            else:
+                if password == None:
+                    return Response('{"success": false, "cause": "Bad request"}', status=400, mimetype='application/json')
+                else:
+                    try:
+                        db_values = Auth.query.filter_by(username=username).first()
+                        try:
+                            db_pass = db_values.password
+                            if sha256_crypt.verify(str(password), db_pass):
+                                return Response('{"success": true, "message": "Logged in"}', status=200, mimetype='application/json')
+                            else:
+                                return Response('{"success": false, "cause": "Incorrect credentials"}', status=400, mimetype='application/json')
+                        except:
+                            return Response('{"success": false, "cause": "Something went wrong."}', status=400, mimetype='application/json')
+                    except:
+                        return Response('{"success": false, "cause": "Could not find that username"}', status=400, mimetype='application/json')
         except:
             return Response('{"success": false, "cause": "Bad request"}', status=400, mimetype='application/json')
     else:
