@@ -36,4 +36,6 @@ A tutorial on using this in App Inventor [can be found here](https://ezauth.succ
 
 If you don't want to host on Heroku I recommend editing the code, there is a chance the code will not work. EZAuth has access to the Heroke Postgres database integrated, but if you don't want to host the database on Heroku or want to host the whole application somewhere else, you should change line 7 from `app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']` to `app.config['SQLALCHEMY_DATABASE_URI'] = 'ENTER_POSTGRES_DATABASE_URI_HERE'`. Your Postgres URI should start like the following: `postgres://`.\
 
+[Download source code](https://github.com/mauritsf15/EZAuth/releases/tag/1.0)
+
 #### If you need any help be sure to [send me an email](mailto:ezauth@succ.pw)!
