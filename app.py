@@ -19,6 +19,8 @@ class Auth(db.Model):
     def __repr__(self):
         return f"Auth(username='{self.username}', email='{self.email}', password='{self.password}'"
 
+db.create_all()
+
 @app.route('/')
 def index():
     return jsonify(success=True, message="EZAuth is working!")
